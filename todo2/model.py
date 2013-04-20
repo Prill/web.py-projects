@@ -1,6 +1,6 @@
 import web
-
-db = web.database (dbn="sqlite", db="data/main.sqlite3")
+from config import db_config
+db = web.database (dbn=db_config.dbms, db=db_config.db)
 
 def get_all_todos():
     return db.select('todo', order='id')
